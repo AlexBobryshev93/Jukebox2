@@ -6,10 +6,10 @@ import com.mycompany.jukebox.Song;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Jukebox implements JukeboxInterface {
+public class JukeboxImpl implements JukeboxInterface {
     private Map<Integer, Song> songs = new HashMap<>();
 
-    public Jukebox() {
+    public JukeboxImpl() {
         songs.put(1, new Song("Nirvana", "Smells Like Teen Spirit"));
         songs.put(2, new Song("Butyrka", "Smells Like Spring"));
         songs.put(3, new Song("Metallica", "Enter Sandman"));

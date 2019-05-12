@@ -6,7 +6,7 @@
 package com.mycompany;
 
 import com.mycompany.jukebox.PlaylistEditorInterface;
-import com.mycompany.jukebox.implementation.PlaylistEditor;
+import com.mycompany.jukebox.implementation.PlaylistEditorImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -21,9 +21,9 @@ public class Main {
     public static void main(String... args) {
         System.out.println("Insert a coin!");
 
-        PlaylistEditorInterface editor = APPLICATION_CONTEXT.getBean("playlistEditorBean", PlaylistEditor.class);
+        PlaylistEditorInterface editor = APPLICATION_CONTEXT.getBean("playlistEditorBean", PlaylistEditorImpl.class);
 
-        //PlaylistEditorInterface editor = new PlaylistEditor();
+        //PlaylistEditorInterface editor = new PlaylistEditorImpl();
         editor.setPlaylist(1, 2 , 3, 6);
         editor.printPlaylist();
     }

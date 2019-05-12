@@ -1,8 +1,8 @@
 package com.mycompany;
 
 import com.mycompany.jukebox.Song;
-import com.mycompany.jukebox.implementation.Jukebox;
-import com.mycompany.jukebox.implementation.PlaylistEditor;
+import com.mycompany.jukebox.implementation.JukeboxImpl;
+import com.mycompany.jukebox.implementation.PlaylistEditorImpl;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,15 +18,15 @@ public class BeanConfiguration {
 
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    public Jukebox jukeboxBean() {
-        return new Jukebox();
+    public JukeboxImpl jukeboxBean() {
+        return new JukeboxImpl();
     }
 
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    public PlaylistEditor playlistEditorBean() {
-        final PlaylistEditor playlistEditor = new PlaylistEditor();
-        playlistEditor.setJukebox(jukeboxBean());
-        return playlistEditor;
+    public PlaylistEditorImpl playlistEditorBean() {
+        final PlaylistEditorImpl playlistEditorImpl = new PlaylistEditorImpl();
+        playlistEditorImpl.setJukeboxImpl(jukeboxBean());
+        return playlistEditorImpl;
     }
 }

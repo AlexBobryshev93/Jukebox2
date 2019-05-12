@@ -6,18 +6,18 @@ import com.mycompany.jukebox.Song;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PlaylistEditor implements PlaylistEditorInterface {
-    private Jukebox jukebox;
+public class PlaylistEditorImpl implements PlaylistEditorInterface {
+    private JukeboxImpl jukeboxImpl;
     private List<Song> playlist = new LinkedList<>();
 
-    public PlaylistEditor() {
-        jukebox = new Jukebox();
-        System.out.println("Jukebox is ready...");
+    public PlaylistEditorImpl() {
+        jukeboxImpl = new JukeboxImpl();
+        System.out.println("JukeboxImpl is ready...");
     }
 
     @Override
     public void setPlaylist(Integer...ids) {
-        for(Integer i : ids) playlist.add(jukebox.chooseSongById(i));
+        for(Integer i : ids) playlist.add(jukeboxImpl.chooseSongById(i));
     }
 
     public List<Song> getPlaylist() {
@@ -30,11 +30,11 @@ public class PlaylistEditor implements PlaylistEditorInterface {
         for (Song song : playlist) System.out.println(song.toString());
     }
 
-    public void setJukebox(Jukebox jukebox) {
-        this.jukebox = jukebox;
+    public void setJukeboxImpl(JukeboxImpl jukeboxImpl) {
+        this.jukeboxImpl = jukeboxImpl;
     }
 
-    public Jukebox getJukebox() {
-        return jukebox;
+    public JukeboxImpl getJukeboxImpl() {
+        return jukeboxImpl;
     }
 }
