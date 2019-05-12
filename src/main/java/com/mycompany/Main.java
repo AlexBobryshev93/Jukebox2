@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany;
 
 import com.mycompany.jukebox.PlaylistEditorInterface;
@@ -19,12 +14,18 @@ public class Main {
             new AnnotationConfigApplicationContext(BeanConfiguration.class);
 
     public static void main(String... args) {
+        PlaylistEditorInterface editor = APPLICATION_CONTEXT.getBean("playlistEditorBean", PlaylistEditorInterface.class);
+
         System.out.println("Insert a coin!");
-
-        PlaylistEditorInterface editor = APPLICATION_CONTEXT.getBean("playlistEditorBean", PlaylistEditorImpl.class);
-
-        //PlaylistEditorInterface editor = new PlaylistEditorImpl();
-        editor.setPlaylist(1, 2 , 3, 6);
+        editor.setPlaylist(1, 4, 3, 6);
         editor.printPlaylist();
     }
+/*
+    public static void main2(String... args) {
+        PlaylistEditorInterface editor = (PlaylistEditorInterface) APPLICATION_CONTEXT.getBean("playlistEditorBean2");
+
+        System.out.println("Insert a coin!");
+        editor.setPlaylist(5, 6);
+        editor.printPlaylist();
+    } */
 }
